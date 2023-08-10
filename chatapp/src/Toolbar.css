@@ -1,0 +1,19 @@
+/* #F4ABAA 
+#2A3166
+#EE7879
+#98e3ce*/
+.toolbar {
+  /* border: 2px solid blue; */
+  padding: 5px;
+  padding-top: 20px;
+  width: 25%;
+  max-height: 100%;
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: #ee7879;
+  position: relative;
+  box-shadow: -1px 5px 30px -8px rgba(00, 0, 0, 0.75);
+}

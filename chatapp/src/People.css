@@ -1,0 +1,89 @@
+/* #F4ABAA 
+#2A3166
+#EE7879
+#98e3ce*/
+.mainpeople {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  z-index: 1;
+  height: 87vh;
+  position: absolute;
+  /* border: 2px solid red; */
+}
+.people {
+  /* border: 3px solid black; */
+  width: 100%;
+  text-align: center;
+  overflow: scroll;
+  max-height: 87vh;
+  height: 100%;
+  position: relative;
+}
+.searchname {
+  width: 90%;
+  height: 40px;
+  outline-width: 0;
+  background-color: white;
+  padding-left: 5px;
+  border-radius: 20px;
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* This is css for indivisual  */
+.indivisual {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  height: 75px;
+  max-height: 75px;
+  /* border: 2px solid blue; */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.indivisual:hover {
+  background-color: #98e3ce;
+  transition: 0.2s ease-in;
+}
+
+h3 {
+  /* border: 2px solid green; */
+  max-width: 60%;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+}
+p {
+  /* border: 2px solid brown; */
+  margin-top: 0;
+  padding-left: 5px;
+  height: 66%;
+  max-height: 40px;
+  text-align: left;
+}
+.person {
+  /* border: 2px solid purple; */
+  display: flex;
+}
+.perlogo {
+  /* border: 2px solid black; */
+  max-width: 80px;
+  height: 100%;
+  margin-right: 5px;
+}
+.pername {
+  width: 100%;
+  /* border: 2px solid green;
+    padding-bottom: 0; */
+}
+.namesub {
+  display: none;
+}
+
+.aim_for_life {
+  /* overflow:hidden;
+    border: 2px solid red; */
+}

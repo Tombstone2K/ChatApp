@@ -1,0 +1,53 @@
+.otherdetial {
+  margin-left: 7px;
+  margin-top: 5px;
+  z-index: 5;
+  background-color: #98e3ce;
+  height: 300px;
+  width: 34%;
+  position: absolute;
+  border-radius: 5px;
+  transform-style: preserve-3d;
+  box-shadow: -1px 5px 30px -8px rgba(00, 0, 0, 0.75);
+
+  /* display: none; */
+}
+.otherdetail::before {
+  display: flex;
+  margin-top: -1vh;
+  content: "";
+  border-top: 4px solid #98e3ce;
+}
+
+#hovernames {
+  display: flex;
+  padding: 5px;
+  margin: 10px;
+  padding: 0;
+  width: 50%;
+  height: 40pt;
+  /* border: 2px solid black;  */
+  justify-content: center;
+  font-size: 28pt;
+}
+.otherfits {
+  /* border: 2px solid black;  */
+  width: 90%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+.nome {
+  margin-top: 10px;
+  /* border: 5px solid black; */
+  font-size: 16pt;
+  font-family: cursive;
+  font-weight: 600;
+  color: white;
+  width: 95%;
+  margin-left: 10px;
+}
+#aims,
+#phones {
+  color: darkblue;
+}
