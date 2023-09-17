@@ -74,7 +74,7 @@ function Login(props) {
   function putData() {
     try {
       // console.log("Function putData is called")
-      axios.post("http://localhost:8021/users", formData);
+      axios.post("http://localhost:27017/users", formData);
       setError(false);
     } catch (error) {
       setError(true);
@@ -86,6 +86,14 @@ function Login(props) {
     putData();
   }, [formData]);
 
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [password, setPassword] = useState('');
+  
+  const togglePasswordVisibility = (e) => {
+    e.preventDefault(); 
+    setPasswordVisible(!passwordVisible);
+  };
+
   return (
     <div className="login">
       <div className="wrap">
@@ -94,6 +102,14 @@ function Login(props) {
 
           <form className="logs">
             <input type="text" placeholder="Enter your Name" id="login_name" />
+            <input type={passwordVisible ? 'text' : 'password'} placeholder="Enter your Password" id="login_pass" />
+            <button
+              className="toggle-password-button"
+              onClick={togglePasswordVisibility}
+            >
+              {passwordVisible ? '🙈' : '👁️'}
+            </button>
+            
 
             <Link to="/chats">
               <button type="submit" id="after_go" onClick={login_and_toChats}>
