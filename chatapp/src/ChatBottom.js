@@ -26,6 +26,9 @@ function ChatBottom({ messages, fetchData, receiverdata }) {
   const { chats, setChats } = useChats();
   const { you, setYou } = useYou();
   const [input, setInput] = useState("");
+  setYou(localStorage.getItem(
+    "username"
+  ));
   const sendMessage = async (e) => {
     e.preventDefault();
 
@@ -45,9 +48,10 @@ function ChatBottom({ messages, fetchData, receiverdata }) {
     async function putData() {
       try {
         const dates = getCurrentISTTime();
+        // console.log();
         console.log("The sender is :" + you);
         console.log("The receiver is :" + chats);
-        await axios.post("http://localhost:8021/chats", {
+        await axios.post("http://localhost:27017/chats", {
           sendername: you,
           message: input,
           timestamp: dates,

@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
+import { useNavigate  } from "react-router-dom";
 import "./App.css";
 import Header from "./Header";
 import People from "./People";
@@ -7,11 +8,22 @@ import { Helper } from "./Helper";
 import Kanban from "./kanban/Kanban";
 import axios from "axios";
 import Login from "./Login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import FileShare from "./FileShare";
 import Cal from "./Cal";
 
 function App() {
+  // const navigate = useNavigate();
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (localStorage.length === 0 || localStorage.getItem("username") === "") {
+  //     // Do something when the condition is met, if needed.
+  //     navigate("/");
+  //   } else {
+  //     console.log(localStorage.getItem("username"));
+      
+  //   }
+  // }, [navigate]);
   // console.log("App is the start");
   const [messages, setMessages] = useState([]);
   const [members, setMembers] = useState([]);
@@ -42,13 +54,20 @@ function App() {
   });
   const [currentEvent, setCurrentEvent] = useState(events[0]);
 
+  // useEffect(() => {
+  //   if (localStorage.length === 0 || localStorage.getItem("username") === "") {
+  //     // Redirect to the login page ("/") when the condition is met.
+  //     navigate("/");
+  //   }
+  // }, [navigate]);
+
   const changeEvents = () => {
     async function edit_events() {
       try {
         console.log("Database post is called ");
         const newevents = JSON.parse(sessionStorage.getItem("events"));
         const organisation = localStorage.getItem("organisation");
-        await axios.post("http://localhost:8021/projects", {
+        await axios.post("http://localhost:27017/projects", {
           organisation: organisation,
           events: newevents,
         });
@@ -63,7 +82,7 @@ function App() {
     try {
       const organisation = localStorage.getItem("organisation");
       console.log('This is the organisation  of user : ',organisation)
-      const result = await axios.get("http://localhost:8021/projects", {
+      const result = await axios.get("http://localhost:27017/projects", {
         params: { organisation: organisation },
       });
       sessionStorage.setItem("events", JSON.stringify(result.data.events));
@@ -84,7 +103,7 @@ function App() {
       // console.log(sessionStorage.getItem("reciever"), "This is the receiver");
       // console.log("Function is called");
       // console.log("The User here is " + mainuser);
-      const result = await axios.get("http://localhost:8021/chats", {
+      const result = await axios.get("http://localhost:27017/chats", {
         params: {
           sendername: mainuser,
           receivername: sessionStorage.getItem("reciever"),
@@ -101,22 +120,27 @@ function App() {
     try {
       // console.log('The function get_friends is called')
       // console.log("This is the current user: ", mainuser);
-      const result = await axios.get("http://localhost:8021/users");
+      const result = await axios.get("http://localhost:27017/users");
+      // console.log("HELLO");
+      const temp = result.data;
+      // .slice(0,8);
       // console.log(result.data);
-      setMembers(result.data);
-      const res = result.data.filter((member) => member.name === mainuser);
+      setMembers(temp);
+      const res = temp.filter((member) => member.name === mainuser);
+      // console.log(res);
       setUserData(res);
       // console.log('This is the user',res[0])
       localStorage.setItem("organisation", res[0].organisation.toUpperCase());
       localStorage.setItem("userdata",JSON.stringify(res[0]));
-
-      const others = result.data.filter(
-        (member) => member.name === document.getElementById("rec").value
-      );
-      // const others=result.data.filter(member=>member.name===sessionStorage.getItem('reciever'))
-      // console.log("Our other friends ", others);
-      setReceiverData(others);
+      // console.log(result.data);
+      // const others = temp.filter(
+      //   (member) => member.name === document.getElementById("rec").value
+      // );
+      // // const others=result.data.filter(member=>member.name===sessionStorage.getItem('reciever'))
+      // // console.log("Our other friends ", others);
+      // setReceiverData(others);
     } catch (error) {
+      console.log(error);
       console.log("Errorrrrrrr is here");
     }
   }
@@ -160,7 +184,18 @@ function App() {
             <Route
               path="/chats"
               element={
-                <>
+
+
+                (localStorage.length === 0 || localStorage.getItem("username") === "") ? (
+                  // Render the Login component when the condition is true (redirect case)
+                  // <Login get_friends={get_friends} set_user={set_user} />
+                  <>
+                  <Navigate to="/" />
+                  
+                  </>
+                ) : (
+
+                  <>
                   <Header
                     userdata={userdata}
                     receiverdata={receiverdata}
@@ -185,7 +220,14 @@ function App() {
                       />
                     </div>
                   </main>
-                </>
+                  
+                  </>
+                  // Render a different component when the condition is false (e.g., your main app)
+                  
+                )
+
+
+                
               }
             />
           </Routes>
