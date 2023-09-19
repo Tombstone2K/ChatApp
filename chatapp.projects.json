@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "64d08406cb5437265b3fb640"
+  },
+  "organisation": null,
+  "__v": 0,
+  "events": [
+    {
+      "title": "Add a new Event",
+      "To do": [],
+      "In progress": [],
+      "Completed": []
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d087dbcb5437265b3fb920"
+  },
+  "organisation": "KJ",
+  "__v": 0,
+  "events": [
+    {
+      "title": "Smit was here",
+      "To do": [],
+      "In progress": [
+        {
+          "name": "Smit",
+          "id": "21bec834-1372-dab6-375f-ed2ee928ab9c",
+          "details": "Yo"
+        }
+      ],
+      "Completed": []
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d08b58cb5437265b3fbbdf"
+  },
+  "organisation": "NMIMS",
+  "__v": 0,
+  "events": [
+    {
+      "title": "AWP",
+      "To do": [
+        {
+          "name": "One",
+          "id": "3344e470-0c93-5158-b7ad-ba6d6c351b70",
+          "details": "Db handling"
+        },
+        {
+          "name": "One",
+          "id": "55537eb2-e40f-07d8-508c-a20a6dbc591f",
+          "details": "On register login directly"
+        },
+        {
+          "name": "One",
+          "id": "19232520-3fd6-a7fa-f7a3-e7791f7aac8b",
+          "details": "Add web Sockets if needed"
+        },
+        {
+          "name": "One",
+          "id": "d8719173-5f3e-1dbc-48d6-b1e10719731a",
+          "details": "Innovation"
+        }
+      ],
+      "In progress": [
+        {
+          "name": "Suhani",
+          "id": "0612f8c9-b8bb-f40a-6a0b-daf7a7250b71",
+          "details": "Delayed Messages"
+        },
+        {
+          "name": "Suhani",
+          "id": "ca582bd6-bd07-aca5-a9d3-430306252c69",
+          "details": "Audio Video and Photo Transfer"
+        },
+        {
+          "name": "Raj",
+          "id": "0838eee5-7fb0-0b4a-f585-e203e1e9a31c",
+          "details": "Password and encryption"
+        },
+        {
+          "name": "Raj",
+          "id": "64b6a3c3-8127-bf14-b68b-3e7edaac974a",
+          "details": "Cookies"
+        },
+        {
+          "name": "Urveesh",
+          "id": "60e43229-94f2-158f-16c0-c80c691f307a",
+          "details": "On click directly open chat"
+        },
+        {
+          "name": "Urveesh",
+          "id": "a819b59a-5818-15fd-28dd-dd06a50dc528",
+          "details": "Css styling issues(80%) sorted"
+        }
+      ],
+      "Completed": [
+        {
+          "name": "Urveesh",
+          "id": "4e2e2e6e-3ca1-ea73-b915-41be5a0d5a8d",
+          "details": "Remove so far away and add timestamp"
+        },
+        {
+          "name": "Urveesh",
+          "id": "b3800c49-dac6-baec-4fcb-2e3e98e7d217",
+          "details": "Single step chat generation"
+        },
+        {
+          "name": "Urveesh",
+          "id": "fa835f96-27b1-73af-1d4c-f51a78ebb7f8",
+          "details": "Kanban board"
+        },
+        {
+          "name": "Urveesh",
+          "id": "7eff6bf9-96c1-a22b-0d17-60c721dced34",
+          "details": "Persistence of details"
+        }
+      ]
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "64d109961fed6945a4e65c2e"
+  },
+  "organisation": "YES",
+  "__v": 0,
+  "events": [
+    {
+      "title": "Isha was here",
+      "To do": [],
+      "In progress": [],
+      "Completed": [
+        {
+          "name": "Suhani ki fr",
+          "id": "0e406580-a6bf-fbb9-86fa-9edf4399a7d0",
+          "details": "is still alive"
+        }
+      ]
+    }
+  ]
+}]

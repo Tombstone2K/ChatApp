@@ -1,0 +1,627 @@
+[{
+  "_id": {
+    "$oid": "64bd3f6cccfa576423d6c89c"
+  },
+  "message": "Hi madam",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "20:25:40",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64bd3f79ccfa576423d6c8af"
+  },
+  "message": "Yo Urveesh here",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "8:25:53 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64bd40c7ccfa576423d6c91a"
+  },
+  "message": "Hey suhani this is Urveesh here to inform you that I have solved the ",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "8:31:27 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64bd4229ccfa576423d6c9a3"
+  },
+  "message": "Hey Suhani Absolutely Happy to inform you that I have solved the so far away to real time in IST",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "8:37:21 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64bd43bdccfa576423d6c9c4"
+  },
+  "message": "Great",
+  "receivername": "Urveesh",
+  "sendername": "Suhani",
+  "timestamp": "8:44:05 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64bd48ffccfa576423d6c9fe"
+  },
+  "message": "yea",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "9:06:31 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be8e89ccfa576423d6cb00"
+  },
+  "message": "Hahahahahahaaha",
+  "receivername": "Rajdeep",
+  "sendername": "Urveesh",
+  "timestamp": "8:15:29 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be8fb9ccfa576423d6cb5b"
+  },
+  "message": "Bhai life kaisi hai in Kj ?",
+  "receivername": "Smit",
+  "sendername": "Urveesh",
+  "timestamp": "8:20:32 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be8fd0ccfa576423d6cbad"
+  },
+  "message": "Tere koi dost hai ladki ki wapas Gay ??",
+  "receivername": "Smit",
+  "sendername": "Urveesh",
+  "timestamp": "8:20:56 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be8fe8ccfa576423d6cbd8"
+  },
+  "message": "Lavde",
+  "receivername": "Urveesh",
+  "sendername": "Smit",
+  "timestamp": "8:21:20 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be9135ccfa576423d6cbf6"
+  },
+  "message": "yo",
+  "receivername": "Suhani",
+  "sendername": "Isha",
+  "timestamp": "8:26:53 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be9757ccfa576423d6ccf3"
+  },
+  "message": "Yo ",
+  "receivername": "Isha",
+  "sendername": "Urveesh",
+  "timestamp": "8:53:03 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be9761ccfa576423d6cd33"
+  },
+  "message": "You must be Suhani Ka friend",
+  "receivername": "Isha",
+  "sendername": "Urveesh",
+  "timestamp": "8:53:13 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be9775ccfa576423d6cd66"
+  },
+  "message": "How are youbsdk",
+  "receivername": "Raghavendra",
+  "sendername": "Urveesh",
+  "timestamp": "8:53:33 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be977fccfa576423d6cd79"
+  },
+  "message": "yp",
+  "receivername": "Ritam",
+  "sendername": "Urveesh",
+  "timestamp": "8:53:43 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64be9783ccfa576423d6cd83"
+  },
+  "message": "yo*",
+  "receivername": "Ritam",
+  "sendername": "Urveesh",
+  "timestamp": "8:53:47 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64bfaeebcd9423f266b2dbf7"
+  },
+  "message": "Now",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "4:45:55 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64bfaefecd9423f266b2dc08"
+  },
+  "message": "q",
+  "receivername": "Ritam",
+  "sendername": "Urveesh",
+  "timestamp": "4:46:14 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ca0397ce46c0660da2eb71"
+  },
+  "message": "Yo",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "12:49:51 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ca0eface46c0660da2ec29"
+  },
+  "message": "Hi",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "1:38:26 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ca2806ce46c0660da2ed41"
+  },
+  "message": "Nice",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "3:25:18 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ca70ec93f9481139ca25ab"
+  },
+  "message": "Fun",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "8:36:20 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64cb33d7e5d219ee793a5bb0"
+  },
+  "message": "dfdfd",
+  "receivername": "Rajdeep",
+  "sendername": "Urveesh",
+  "timestamp": "10:27:59 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d0743a1358f6bcf3267f62"
+  },
+  "message": "Yo",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "10:04:02 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d0745cbf8640e61e56ed39"
+  },
+  "message": "Hi",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "10:04:36 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d093d8aabccc0248b5ed14"
+  },
+  "message": "hi",
+  "receivername": "Urveesh",
+  "sendername": "Dev",
+  "timestamp": "12:18:56 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a386e7debaae218abcbb"
+  },
+  "message": "Kya hal bhau",
+  "receivername": "Dev",
+  "sendername": "Urveesh",
+  "timestamp": "7:38:06 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a3dbe7debaae218abcda"
+  },
+  "message": "Yo gm",
+  "receivername": "Rajdeep",
+  "sendername": "Urveesh",
+  "timestamp": "7:39:31 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a44ae7debaae218abd0a"
+  },
+  "message": "Nice",
+  "receivername": "Rajdeep",
+  "sendername": "Urveesh",
+  "timestamp": "7:41:22 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a765e7debaae218abd9c"
+  },
+  "message": "Hi urveesh ka bhau here",
+  "receivername": "",
+  "sendername": "Smit",
+  "timestamp": "7:54:37 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a793e7debaae218abdae"
+  },
+  "message": "Bhai whats up ",
+  "receivername": "Dev",
+  "sendername": "Urveesh",
+  "timestamp": "7:55:23 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a7f3e7debaae218abdb0"
+  },
+  "message": "hi",
+  "receivername": "Dev",
+  "sendername": "Urveesh",
+  "timestamp": "7:56:59 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a7f8e7debaae218abdb4"
+  },
+  "message": "yo",
+  "receivername": "Dev",
+  "sendername": "Urveesh",
+  "timestamp": "7:57:04 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a876e7debaae218abdc3"
+  },
+  "message": "hi",
+  "receivername": "",
+  "sendername": "Urveesh",
+  "timestamp": "7:59:10 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a87fe7debaae218abdc7"
+  },
+  "message": "dev",
+  "receivername": "",
+  "sendername": "Urveesh",
+  "timestamp": "7:59:19 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a8d0e7debaae218abdd9"
+  },
+  "message": "hi",
+  "receivername": "Dev",
+  "sendername": "Smit",
+  "timestamp": "8:00:40 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a962e7debaae218abe13"
+  },
+  "message": "Donkey",
+  "receivername": "Rajdeep",
+  "sendername": "Suhani",
+  "timestamp": "8:03:06 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a970e7debaae218abe2c"
+  },
+  "message": "Hello",
+  "receivername": "Rajdeep",
+  "sendername": "Urveesh",
+  "timestamp": "8:03:20 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a980e7debaae218abe3d"
+  },
+  "message": "Hello",
+  "receivername": "Rajdeep",
+  "sendername": "Urveesh",
+  "timestamp": "8:03:36 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1a9dde7debaae218abe74"
+  },
+  "message": "Hi suhani",
+  "receivername": "Suhani",
+  "sendername": "Ritam",
+  "timestamp": "8:05:09 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1aa34e7debaae218abea6"
+  },
+  "message": "Uncle",
+  "receivername": "Ritam",
+  "sendername": "Urveesh",
+  "timestamp": "8:06:35 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1aa4ae7debaae218abebf"
+  },
+  "message": "Uncle",
+  "receivername": "Ritam",
+  "sendername": "Suhani",
+  "timestamp": "8:06:58 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1aa77e7debaae218abee3"
+  },
+  "message": "hi",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "8:07:43 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1aa85e7debaae218abefa"
+  },
+  "message": "yo",
+  "receivername": "Rajdeep",
+  "sendername": "Urveesh",
+  "timestamp": "8:07:57 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1aa92e7debaae218abf0d"
+  },
+  "message": "hi",
+  "receivername": "Rajdeep",
+  "sendername": "Suhani",
+  "timestamp": "8:08:10 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1aaf8e7debaae218abf21"
+  },
+  "message": "T",
+  "receivername": "Rajdeep",
+  "sendername": "Suhani",
+  "timestamp": "8:09:52 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1ab40e7debaae218abf45"
+  },
+  "message": "yooooo",
+  "receivername": "Rajdeep",
+  "sendername": "Ritam",
+  "timestamp": "8:11:04 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1acc5e7debaae218abf69"
+  },
+  "message": "N",
+  "receivername": "Rajdeep",
+  "sendername": "Suhani",
+  "timestamp": "8:17:33 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1b054e7debaae218abf9d"
+  },
+  "message": "namste'",
+  "receivername": "Rajdeep",
+  "sendername": "Ritam",
+  "timestamp": "8:32:44 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d1b063e7debaae218abfba"
+  },
+  "message": "sup",
+  "receivername": "Urveesh",
+  "sendername": "Ritam",
+  "timestamp": "8:32:59 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d297550e299b62a4fbba31"
+  },
+  "message": "Hi isha here",
+  "receivername": "Suhani",
+  "sendername": "Isha",
+  "timestamp": "12:58:21 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d298f30e299b62a4fbba8c"
+  },
+  "message": "Haaland is definately a god",
+  "receivername": "Rajdeep",
+  "sendername": "Aryan",
+  "timestamp": "1:05:15 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d29d340e299b62a4fbbae9"
+  },
+  "message": "Nice clean code",
+  "receivername": "Urveesh",
+  "sendername": "Suhani",
+  "timestamp": "1:23:24 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d29d3f0e299b62a4fbbafe"
+  },
+  "message": "Beauty of react Js",
+  "receivername": "Urveesh",
+  "sendername": "Suhani",
+  "timestamp": "1:23:35 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d2c36595f3bf16460d1da5"
+  },
+  "message": "Hiiii",
+  "receivername": "Rajdeep",
+  "sendername": "Urveesh",
+  "timestamp": "4:06:21 am",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d38139401434a5caba8db6"
+  },
+  "message": "namaste",
+  "receivername": "Suhani",
+  "sendername": "Urveesh",
+  "timestamp": "5:36:17 pm",
+  "received": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d381bc401434a5caba8dcf"
+  },
+  "message": "http://localhost:8021/file/64d38190401434a5caba8dc5",
+  "receivername": "Ritam",
+  "sendername": "Urveesh",
+  "timestamp": "5:38:28 pm",
+  "received": false,
+  "__v": 0
+}]

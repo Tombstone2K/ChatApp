@@ -1,0 +1,81 @@
+[{
+  "_id": {
+    "$oid": "642d0b8d1b6af5ec2de2fa4d"
+  },
+  "path": "upload\\f1a091feae9af16d80e365d90b964005",
+  "name": "hi.jpg",
+  "downloadCount": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "642d0d751b6af5ec2de2fa91"
+  },
+  "path": "upload\\eb229ffeb51ada78bb97eb2b38937792",
+  "name": "hi.jpg",
+  "downloadCount": 2,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "642d0f8e1b6af5ec2de2faad"
+  },
+  "path": "upload\\455c73af12a0d26fd2db7fcdc144bd5c",
+  "name": "hi.jpg",
+  "downloadCount": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "642d108c1b6af5ec2de2faaf"
+  },
+  "path": "upload\\82fd2816677068084d8fcab4146c92ce",
+  "name": "hi.jpg",
+  "downloadCount": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64310c702174b83ad4fdf2ff"
+  },
+  "path": "upload\\8c225031f0b657a342e88e52dd715ade",
+  "name": "Tcs final 2.pdf",
+  "downloadCount": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6457865898dcee47460d8dc8"
+  },
+  "path": "upload\\8963e78e6f922d340d43a2dc09804896",
+  "name": "Chatapp1.png",
+  "downloadCount": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64968cf82647942a355d84b5"
+  },
+  "path": "upload\\2bda07bb7b40b124a2a7630346ac9255",
+  "name": "pexels-tobias-dziuba-907607.jpg",
+  "downloadCount": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64ca27d2ce46c0660da2ecf0"
+  },
+  "path": "upload\\8303a9601f7bc79e806436fae75dcf2e",
+  "name": "Ai Exp-2 Socrates is mortalB012UrveeshDOshi.doc",
+  "downloadCount": 1,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64d38190401434a5caba8dc5"
+  },
+  "path": "upload\\65bda0ab8efa5ee7c621b05eed7696c7",
+  "name": "a.jpg",
+  "downloadCount": 0,
+  "__v": 0
+}]
