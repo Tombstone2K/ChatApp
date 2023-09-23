@@ -1,12 +1,5 @@
 [{
   "_id": {
-    "$oid": "642c66ddff721375e2d079a7"
-  },
-  "__v": 0,
-  "organisation": "NMIMS"
-},
-{
-  "_id": {
     "$oid": "642c6729ff721375e2d079ab"
   },
   "name": "Urveesh",
@@ -16,7 +9,8 @@
   },
   "interest": "Basketball Supremacy, to become a miracle",
   "__v": 0,
-  "organisation": "NMIMS"
+  "organisation": "NMIMS",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -29,7 +23,8 @@
   },
   "interest": "To get to know Haaland and play with him",
   "__v": 0,
-  "organisation": "NMIMS"
+  "organisation": "NMIMS",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -42,7 +37,8 @@
   },
   "interest": "To finish succession in this decade",
   "__v": 0,
-  "organisation": "NMIMS"
+  "organisation": "NMIMS",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -55,7 +51,8 @@
   },
   "interest": "Haaland is dumb Real Madrid for life",
   "__v": 0,
-  "organisation": "NMIMS"
+  "organisation": "NMIMS",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -68,7 +65,8 @@
   },
   "interest": "To surpass Urveesh and then laugh at him",
   "__v": 0,
-  "organisation": "KJ"
+  "organisation": "KJ",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -81,7 +79,8 @@
   },
   "interest": "Extc for life, future supercar maker",
   "__v": 0,
-  "organisation": "NMIMS"
+  "organisation": "NMIMS",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -94,7 +93,8 @@
   },
   "interest": "Shiv Bakt",
   "__v": 0,
-  "organisation": "NMIMS"
+  "organisation": "NMIMS",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -107,7 +107,8 @@
   },
   "interest": "Become the best doctor",
   "__v": 0,
-  "organisation": "Yes"
+  "organisation": "Yes",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -120,7 +121,8 @@
   },
   "interest": "Footballl, gym",
   "__v": 0,
-  "organisation": "NMIMS"
+  "organisation": "NMIMS",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 },
 {
   "_id": {
@@ -133,5 +135,6 @@
   },
   "interest": "Make everyone healthy",
   "__v": 0,
-  "organisation": "WORLD"
+  "organisation": "WORLD",
+  "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
 }]

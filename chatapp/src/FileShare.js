@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./FileShare.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 import { Avatar, IconButton } from "@material-ui/core";
 
@@ -10,6 +10,16 @@ function FileShare() {
   const [result, setResult] = useState("");
   const [isCopied, setIsCopied] = useState(false);
   const fileInputRef = useRef();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.length === 0 || localStorage.getItem("username") === "") {
+      // Do something when the condition is met, if needed.
+      navigate("/");
+    } else {
+      console.log(localStorage.getItem("username"));
+      
+    }
+  }, []);
 
   function handleClick() {
     const text = result;
@@ -21,7 +31,7 @@ function FileShare() {
 
   const uploadfile = async (data) => {
     try {
-      let response = await axios.post("http://localhost:8021/upload", data);
+      let response = await axios.post("http://localhost:27017/upload", data);
       return response.data;
     } catch (error) {
       console.error("This is error ", error.message);

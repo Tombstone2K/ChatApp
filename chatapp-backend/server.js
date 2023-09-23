@@ -3,6 +3,9 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import multer from 'multer'
 
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
 import dotenv from 'dotenv';
 dotenv.config();
 //PLEASE NOTE THAT IN ORDER TO MAKE IT A REAL TIME CHAT APP PUSHER IS NEEDED WHICH DOES NOT WORK OFFLINE
@@ -11,7 +14,7 @@ dotenv.config();
 const app = express();
 const router = express.Router();
 const upload=multer({dest:'upload'});
-const port = process.env.PORT || 8021;
+const port = process.env.PORT || 27017;
 
 // Mongoose model for the collection
 const myModel = mongoose.model('chats', {
@@ -23,10 +26,12 @@ const myModel = mongoose.model('chats', {
   });
 const myUsers = mongoose.model('users', {
     name:String,
+    
     link:String,
     numbers:Number,
     interest:String,
     organisation:String,
+    password:String,
   });
 const kanban_projects = mongoose.model('projects', {
     organisation:String,
@@ -76,7 +81,7 @@ const uploadImage = async (request, response) => {
   
   try {
       const file = await File.create(fileObj);
-      response.status(200).json({ path: `http://localhost:8021/file/${file._id}`});
+      response.status(200).json({ path: `http://localhost:27017/file/${file._id}`});
   } catch (error) {
       console.error(error.message);
       response.status(500).json({ error: error.message });
@@ -202,7 +207,34 @@ app.post('/projects', async (req, res) => {
     });
 
     // File sharing 
-   
+
+    app.post('/login', async (req, res) => {
+      console.log("IN VALIDATION");
+      try {
+        console.log(req.body);
+        const nameFromReq = req.body['name'];
+        const passwordFromReq = req.body['password'];
+
+        // Find the user by name
+        const user = await myUsers.findOne({ name: nameFromReq });
+    
+        if (!user) {
+          return res.status(401).json({ message: 'Invalid username or password' });
+        }
+    
+        // Compare the entered password with the hashed password in the database
+        const passwordMatch = await bcrypt.compare(passwordFromReq, user.password);
+    
+        if (!passwordMatch) {
+          return res.status(401).json({ message: 'Invalid username or password' });
+        }
+    
+        res.json({ message: 'Login successful' });
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server error' });
+      }
+    });
 
     
    
@@ -212,10 +244,11 @@ app.post('/projects', async (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
+    console.log("Hello Moto!!");
     });
 
     //Now Connecting to the database 
-const url='mongodb://localhost:27017/chatapp';
+const url='mongodb://0.0.0.0:27017/chatapp';
 const db=mongoose.connect  (url,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -224,5 +257,6 @@ const db=mongoose.connect  (url,{
         console.log('Connected to the database');
     })
     .catch((err) => {
+      console.log("SUPER BIG ERROR");
         console.error(err);
     });

@@ -3,7 +3,9 @@ import "./Header.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Avatar, IconButton } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { useYou } from "./Helper";
+
+import { Link, useNavigate  } from "react-router-dom";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import MessageOutlinedIcon from "@mui/icons-material/MessageOutlined";
 import {
@@ -18,10 +20,25 @@ import ListIcon from "@mui/icons-material/List";
 function Header(props) {
   const { ShowUser, RemoveUser } = useUSerdetaildisplay();
   const { Other, setOther, ShowOther, RemoveOther } = useOtherdetail();
+  const { you, setYou } = useYou();
   const updateside = useUpdateside();
   const Vis = useSide();
   const { chats, setChats } = useChats();
   const [smallshow, setSmallShow] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Set the "username" in localStorage to an empty string
+    localStorage.setItem("username", "");
+    setYou("");
+    setYou("");
+    localStorage.clear();
+    console.log("HELLO");
+    navigate('/');
+    
+    // You can also redirect the user to the home page if needed
+    // e.g., using React Router's history.push('/')
+  };
 
   const showsmall = () => {
     {
@@ -95,13 +112,14 @@ function Header(props) {
               />
             </IconButton>
 
-            <Link to="/">
+            
               <IconButton
                 style={{ backgroundColor: "white", color: "#2A3166" }}
+                onClick={handleLogout}
               >
                 <LogoutOutlinedIcon />
               </IconButton>
-            </Link>
+            
           </div>
         </div>
         <div className="header_buttons_list">
@@ -140,13 +158,14 @@ function Header(props) {
                   />
                 </IconButton>
 
-                <Link to="/">
+                
                   <IconButton
                     style={{ backgroundColor: "white", color: "#2A3166" }}
+                    onClick={handleLogout}
                   >
                     <LogoutOutlinedIcon />
                   </IconButton>
-                </Link>
+                
               </div>
             ) : null}
           </div>

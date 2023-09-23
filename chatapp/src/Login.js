@@ -1,13 +1,34 @@
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useYou } from "./Helper";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import axios from "axios";
 function Login(props) {
   const { you, setYou } = useYou();
   const [lock, setLock] = useState(false); // to disable the input and submit
   const [error, setError] = useState(false); // to create a red div in registration on  error
-  const [formData, setFormData] = useState({});
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.length === 0 || localStorage.getItem("username") === "") {
+      // Do something when the condition is met, if needed.
+    } else {
+      console.log(localStorage.getItem("username"));
+      navigate("/chats");
+    }
+  }, []);
+
+
+  const [formData, setFormData] = useState({
+    login_name: '', // Initialize with an empty string
+    login_pass: '', // Initialize with an empty string
+  });
+  
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    // console.log(e.target);
+    setFormData({ ...formData, [id]: value });
+  };
+  
 
   function registration() {
     if (lock === false) {
@@ -33,16 +54,62 @@ function Login(props) {
     }
   };
 
-  const login_and_toChats = () => {
-    // console.log("Function login_and_toChats is called");
-    setYou(document.getElementById("login_name").value);
-    localStorage.setItem(
-      "username",
-      document.getElementById("login_name").value
-    );
-    props.set_user(document.getElementById("login_name").value);
-    props.get_friends();
-    console.log("GOING TO CHATS");
+
+
+  const login_and_toChats = async (e) => {
+
+    e.preventDefault();
+
+    // Check if both fields are filled
+    if (formData['login_name'].trim() === '' || formData['login_pass'].trim() === '') {
+      alert('Please fill in both fields');
+      return;
+    }
+
+
+
+    try {
+      // const hashedPassword = await bcrypt.hash(formData['login_pass'], 10);
+      const response = await fetch('http://localhost:27017/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: formData['login_name'], password:formData['login_pass'] }),
+      });
+
+      if (response.ok) {
+        // console.log("Function login_and_toChats is called");
+        setYou(formData.login_name);
+        
+        // setYou(document.getElementById("login_name").value);
+        localStorage.setItem(
+          "username",
+          formData.login_name
+        );
+        props.set_user(formData.login_name);
+        props.get_friends();
+        console.log(you);
+        console.log("GOING TO CHATS");
+        navigate('/chats');
+        // Login successful
+        // Redirect the user to another page or perform any desired action
+      } else {
+        // Login failed
+        // Display an error message to the user
+        alert('Incorrect Username Password');
+        console.error('Login failed');
+      }
+    } catch (error) {
+      alert('Incorrect Username Password');
+      console.error(error);
+    }
+
+
+
+
+
+    
   };
 
   useEffect(() => {
@@ -56,12 +123,14 @@ function Login(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const name = event.target.elements.name.value;
+    const password = event.target.elements.password.value;
     const numbers = event.target.elements.numbers.value;
     const link = event.target.elements.link.value;
     const interest = event.target.elements.interest.value;
     const organisation = event.target.elements.organisation.value.toUpperCase();
     const data = {
       name,
+      password,
       numbers,
       link,
       interest,
@@ -87,7 +156,7 @@ function Login(props) {
   }, [formData]);
 
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [password, setPassword] = useState('');
+  // const [password, setPassword] = useState('');
   
   const togglePasswordVisibility = (e) => {
     e.preventDefault(); 
@@ -101,11 +170,30 @@ function Login(props) {
           <h1 id="login_title">Login</h1>
 
           <form className="logs">
-            <input type="text" placeholder="Enter your Name" id="login_name" />
-            <input type={passwordVisible ? 'text' : 'password'} placeholder="Enter your Password" id="login_pass" />
+
+          <input
+            type="text"
+            placeholder="Enter your Name"
+            id="login_name"
+            required
+            value={formData.login_name}
+            onChange={handleInputChange}
+          />
+          <input
+            type={passwordVisible ? 'text' : 'password'}
+            placeholder="Enter your Password"
+            id="login_pass"
+            required
+            value={formData.login_pass}
+            onChange={handleInputChange}
+          />
+
+            {/* <input type="text" placeholder="Enter your Name" id="login_name" required onChange={handleInputChange}/>
+            <input type={passwordVisible ? 'text' : 'password'} placeholder="Enter your Password" id="login_pass" required onChange={handleInputChange}/> */}
             <button
               className="toggle-password-button"
               onClick={togglePasswordVisibility}
+              type="button"
             >
               {passwordVisible ? '🙈' : '👁️'}
             </button>
@@ -125,6 +213,7 @@ function Login(props) {
         <div className="sign_up" id="s">
           <form onSubmit={handleSubmit} id="sign" className="logs">
             <input type="text" name="name" placeholder="Create username" />
+            <input type="password" name="password" placeholder="Create Password" />
             <input type="number" name="numbers" placeholder="Enter number" />
             <input
               type="text"
