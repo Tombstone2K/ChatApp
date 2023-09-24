@@ -16,7 +16,7 @@ button {
   margin: 5px;
   outline-width: 0;
 }
-.box,
+.login_box,
 .sign_up {
   /* background-color: red; */
 
@@ -69,9 +69,9 @@ input[type="password"] {
 #after_go {
   width: 100%;
 }
-#s {
+/* #signUP {
   display: none;
-}
+} */
 .sign_up ::placeholder,
 #login_pass::placeholder,
 #login_name::placeholder {
@@ -80,10 +80,10 @@ input[type="password"] {
 }
 .toggle-password-button {
   position: absolute;
-  top: 50%;
-  /* bottom: 50%; */
-  right: 30px; /* Adjust the right position as needed */
-  transform: translateY(-40%);
+  top: 42%;
+  bottom: 58%;
+  right: 45px; /* Adjust the right position as needed */
+  transform: translateY(-50%);
   background: none;
   border: none;
   cursor: pointer;
@@ -96,8 +96,13 @@ input[type="password"] {
   flex-direction: column;
   max-height: 80%;
   box-shadow: -1px 5px 30px -8px rgba(00, 0, 0, 0.75);
-  background: rgb(0,0,126);
-  background: linear-gradient(45deg, rgba(0,0,126,1) 0%, rgba(0,10,181,1) 55%, rgba(162,171,255,1) 100%);
+  background: rgb(0, 0, 126);
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 126, 1) 0%,
+    rgba(0, 10, 181, 1) 55%,
+    rgba(162, 171, 255, 1) 100%
+  );
 }
 #sign_up_show {
   background-color: transparent;
@@ -116,4 +121,8 @@ input[type="password"] {
   color: red;
   font-weight: 600;
   font-size: 18pt;
+}
+.invalid,
+.error {
+  color: red;
 }
