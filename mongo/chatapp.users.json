@@ -137,4 +137,32 @@
   "__v": 0,
   "organisation": "WORLD",
   "password": "$2b$10$H..SqyZos5HDajCDsvIm4e78Q5Lker9bgGwOjVwbdWLBP8JTvrLDe"
+},
+{
+  "_id": {
+    "$oid": "650de56a8091fe6f3746d870"
+  },
+  "name": "Raj",
+  "link": "https://imgs.search.brave.com/yTxeOKZkIxowoppDyh7-dPBtge875nz3YmU67uhWDUE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/djIvMSpwV0dKSUth/dHMtenV1bUEzUlFO/RVdRLmpwZWc",
+  "numbers": {
+    "$numberLong": "9920355893"
+  },
+  "interest": "Happy Birthday",
+  "organisation": "NMIMS",
+  "password": "$2a$10$p0DmMMHg6ZlS7GTfYwagLOMH6St8Y5tZeYRuqUzgzz8RZOTidSj2C",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651011bfb14f79df8ef88497"
+  },
+  "name": "RajH",
+  "link": "",
+  "numbers": {
+    "$numberLong": "9920355893"
+  },
+  "interest": "",
+  "organisation": "NMIMS",
+  "password": "$2a$10$fzKAgM7Q93oCvTKBHf8p/..HH6GlkAtt1/T4Kob.DwmRWazUmYEh.",
+  "__v": 0
 }]
