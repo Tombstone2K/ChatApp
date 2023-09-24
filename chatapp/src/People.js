@@ -51,7 +51,15 @@ function People(props) {
             </button>
           </form>
           {/* <button onClick={create}>Hit it to generate chat</button> */}
-          <Indivisual members={friends} />
+
+          <Indivisual
+            members={friends}
+            setChats={setChats}
+            fetchData={props.fetchData}
+            get_friends={props.get_friends}
+          />
+
+          {/* <Indivisual members={friends} /> */}
         </div>
       </div>
     </>

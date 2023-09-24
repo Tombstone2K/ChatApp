@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./ChatBottom.css";
 import "./RecMes.css";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
@@ -18,7 +18,7 @@ import axios from "axios";
 import Otherdetail from "./Otherdetail";
 import Cal from "./Cal";
 
-function ChatBottom({ messages, fetchData, receiverdata }) {
+function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
   const Timesend = useTimesend();
   const UpdateTimesend = useUpdateTimesend();
   const { dispcal, setDispcal, Showdispcalr, Removedispcal } = useDispCal();
@@ -26,9 +26,21 @@ function ChatBottom({ messages, fetchData, receiverdata }) {
   const { chats, setChats } = useChats();
   const { you, setYou } = useYou();
   const [input, setInput] = useState("");
-  setYou(localStorage.getItem(
-    "username"
-  ));
+  const chatAreaRef = useRef(null);
+
+  // useEffect(() => {
+  //   // console.log("Before scroll: ", chatAreaRef.current.scrollTop);
+  //   chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+  //   // console.log("After scroll: ", chatAreaRef.current.scrollTop);
+  // }, [messages]);
+
+  useEffect(() => {
+    // Scroll to the bottom of the chat area when component mounts
+    chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+  }, [chats, messages]);
+  // const [messages, setMessages] = useState("");
+
+  setYou(localStorage.getItem("username"));
   const sendMessage = async (e) => {
     e.preventDefault();
 
@@ -51,30 +63,37 @@ function ChatBottom({ messages, fetchData, receiverdata }) {
         // console.log();
         console.log("The sender is :" + you);
         console.log("The receiver is :" + chats);
-        await axios.post("http://localhost:27017/chats", {
+        const newMessage = {
           sendername: you,
           message: input,
           timestamp: dates,
           receivername: chats,
           received: false,
-        });
+        };
+        await axios.post("http://localhost:27017/chats", newMessage);
+        setMessages([...messages, newMessage]);
         setInput("");
+        // chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+        // fetchData();
       } catch (error) {
         console.log(error);
       }
     }
-    putData();
+    await putData();
+    setChats(chats);
+    // fetchDataFromServer();
+    // fetchData();
   };
-  useEffect(() => {
-    fetchData();
-  }, [input]);
+  // useEffect(() => {
+  //   fetchData();
+  // }, [input]);
 
   return (
     <>
       {Other ? <Otherdetail receiverdata={receiverdata} /> : null}
       {dispcal ? <Cal /> : null}
       <div className="chatbottom">
-        <div className="chatarea">
+        <div className="chatarea" ref={chatAreaRef}>
           {/* This is the messaging area */}
           {messages.map((message) => (
             // <p className={`chat__message ${message.received && "chat__reciever"} `} key={message._id}>
@@ -108,7 +127,11 @@ function ChatBottom({ messages, fetchData, receiverdata }) {
                 placeholder="Type a message"
                 id="normalmessage"
               />
-              <button type="submit" onClick={sendMessage}>
+              <button
+                type="submit"
+                onClick={sendMessage}
+                disabled={input.length === 0}
+              >
                 Send a message
               </button>
             </form>
