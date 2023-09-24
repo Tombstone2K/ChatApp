@@ -34,7 +34,7 @@
 
 /* This is css for indivisual  */
 .indivisual {
-  padding-top: 10px;
+  padding-top: 15px;
   padding-bottom: 10px;
   padding-left: 15px;
   height: 75px;
@@ -83,7 +83,7 @@ p {
   display: none;
 }
 
-.aim_for_life {
-  /* overflow:hidden;
-    border: 2px solid red; */
-}
+/* .aim_for_life {
+   overflow:hidden;
+    border: 2px solid red; 
+} */

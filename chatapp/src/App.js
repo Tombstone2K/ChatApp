@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./App.css";
 import Header from "./Header";
 import People from "./People";
@@ -8,7 +8,12 @@ import { Helper } from "./Helper";
 import Kanban from "./kanban/Kanban";
 import axios from "axios";
 import Login from "./Login";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import FileShare from "./FileShare";
 import Cal from "./Cal";
 
@@ -21,7 +26,7 @@ function App() {
   //     navigate("/");
   //   } else {
   //     console.log(localStorage.getItem("username"));
-      
+
   //   }
   // }, [navigate]);
   // console.log("App is the start");
@@ -81,7 +86,7 @@ function App() {
   async function getEvents() {
     try {
       const organisation = localStorage.getItem("organisation");
-      console.log('This is the organisation  of user : ',organisation)
+      console.log("This is the organisation  of user : ", organisation);
       const result = await axios.get("http://localhost:27017/projects", {
         params: { organisation: organisation },
       });
@@ -94,6 +99,7 @@ function App() {
 
   async function fetchData() {
     try {
+      // sessionStorage.setItem("reciever", sessionStorage.getItem("reciever"));
       document.getElementById("rec").value === ""
         ? sessionStorage.setItem("reciever", sessionStorage.getItem("reciever"))
         : sessionStorage.setItem(
@@ -131,7 +137,7 @@ function App() {
       setUserData(res);
       // console.log('This is the user',res[0])
       localStorage.setItem("organisation", res[0].organisation.toUpperCase());
-      localStorage.setItem("userdata",JSON.stringify(res[0]));
+      localStorage.setItem("userdata", JSON.stringify(res[0]));
       // console.log(result.data);
       // const others = temp.filter(
       //   (member) => member.name === document.getElementById("rec").value
@@ -174,60 +180,50 @@ function App() {
               path="/"
               element={
                 <>
-                  <Login
-                    get_friends={get_friends}
-                    set_user={set_user}
-                  />
+                  <Login get_friends={get_friends} set_user={set_user} />
                 </>
               }
             />
             <Route
               path="/chats"
               element={
-
-
-                (localStorage.length === 0 || localStorage.getItem("username") === "") ? (
+                localStorage.length === 0 ||
+                localStorage.getItem("username") === "" ? (
                   // Render the Login component when the condition is true (redirect case)
                   // <Login get_friends={get_friends} set_user={set_user} />
                   <>
-                  <Navigate to="/" />
-                  
+                    <Navigate to="/" />
                   </>
                 ) : (
-
                   <>
-                  <Header
-                    userdata={userdata}
-                    receiverdata={receiverdata}
-                    fetchData={fetchData}
-                  />
-                  <main>
-                    <aside>
-                      <People
-                        members={members}
-                        get_friends={get_friends}
-                        set_user={set_user}
-                        fetchData={fetchData}
-                        userdata={userdata}
-                        getEvents={getEvents}
-                      />
-                    </aside>
-                    <div className="aside">
-                      <ChatBottom
-                        messages={messages}
-                        fetchData={fetchData}
-                        receiverdata={receiverdata}
-                      />
-                    </div>
-                  </main>
-                  
+                    <Header
+                      userdata={userdata}
+                      receiverdata={receiverdata}
+                      fetchData={fetchData}
+                    />
+                    <main>
+                      <aside>
+                        <People
+                          members={members}
+                          get_friends={get_friends}
+                          set_user={set_user}
+                          fetchData={fetchData}
+                          userdata={userdata}
+                          getEvents={getEvents}
+                        />
+                      </aside>
+                      <div className="aside">
+                        <ChatBottom
+                          messages={messages}
+                          fetchData={fetchData}
+                          receiverdata={receiverdata}
+                          setMessages={setMessages}
+                        />
+                      </div>
+                    </main>
                   </>
                   // Render a different component when the condition is false (e.g., your main app)
-                  
                 )
-
-
-                
               }
             />
           </Routes>
