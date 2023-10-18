@@ -22,6 +22,7 @@ const myModel = mongoose.model("chats", {
   receivername: String,
   sendername: String,
   timestamp: String,
+  dateval: String,
   received: Boolean,
 });
 const myUsers = mongoose.model("users", {
@@ -122,7 +123,7 @@ app.get("/chats", async (req, res) => {
       sendername: { $in: [sendername, receivername] },
       receivername: { $in: [sendername, receivername] },
     });
-
+    
     res.send(data);
   } catch (err) {
     console.error(err);
@@ -247,6 +248,8 @@ app.listen(port, () => {
 
 //Now Connecting to the database
 const url = "mongodb://0.0.0.0:27017/chatapp";
+// const url = "mongodb+srv://urveeshdoshi09:09March2003@cluster0.2dhi6wc.mongodb.net/?retryWrites=true&w=majority";
+// const url = "mongodb+srv://urveeshdoshi09:09March2003@cluster0.2dhi6wc.mongodb.net/chatapp?retryWrites=true&w=majority";
 const db = mongoose
   .connect(url, {
     useNewUrlParser: true,
