@@ -1,26 +1,25 @@
 import "./People.css";
 import React, { useState, useEffect } from "react";
-import { Avatar } from "@material-ui/core";
+import { Avatar } from "@mui/material";
 import "./Header.css";
-
-function Indivisual({ members, setChats, fetchData, get_friends }) {
+import { useChats, useSide, useUserdetail } from "./Helper";
+function Indivisual({ members, fetchData, get_friends }) {
+  const { chats, setChats } = useChats();
+  // useEffect(() => {
+    
+    
+  // }, [chats]);
   const changeReceiver = (e, memberName) => {
     e.preventDefault();
-    e.preventDefault();
-    // console.log(memberName);
-
-    // Call the setChats and props functions here
+    localStorage.setItem("reciever", memberName);
     sessionStorage.setItem("reciever", memberName);
-    setChats(memberName);
+    setChats(sessionStorage.getItem("reciever"));
+    console.log('This is seesion storage before sending ',sessionStorage.getItem("reciever"))
     fetchData();
     get_friends();
-    // console.log("Hello");
-    // console.log(sessionStorage.getItem("reciever"));
-    // setChats(document.getElementById("rec").value);
-    // props.fetchData();
-    // props.get_friends();
-    // console.log(memberName);
-    // setPasswordVisible(!passwordVisible);
+    // get_friends();
+    // fetchData();
+   
   };
 
   return (

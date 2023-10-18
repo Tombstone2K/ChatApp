@@ -93,13 +93,18 @@ export function Helper({ children }) {
     }
   }
   function ShowUser() {
+    console.log("CALLED HOVER)");
+
     setUser(true);
+    console.log(User);
   }
   function RemoveUser() {
     setUser(false);
+    
   }
   function ShowOther() {
     setOther(true);
+    console.log(Other);
   }
   function RemoveOther() {
     setOther(false);

@@ -4,7 +4,7 @@ import "./RecMes.css";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import MicIcon from "@mui/icons-material/Mic";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import { Avatar, IconButton } from "@material-ui/core";
+import { Avatar, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import {
   useYou,
@@ -27,20 +27,15 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
   const { you, setYou } = useYou();
   const [input, setInput] = useState("");
   const chatAreaRef = useRef(null);
-
-  // useEffect(() => {
-  //   // console.log("Before scroll: ", chatAreaRef.current.scrollTop);
-  //   chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
-  //   // console.log("After scroll: ", chatAreaRef.current.scrollTop);
-  // }, [messages]);
+  const [scheduledTime, setScheduledTime] = useState(0);
+  const [scheduledMessage, setScheduledMessage] = useState("");
 
   useEffect(() => {
-    // Scroll to the bottom of the chat area when component mounts
     chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
   }, [chats, messages]);
-  // const [messages, setMessages] = useState("");
 
   setYou(localStorage.getItem("username"));
+
   const sendMessage = async (e) => {
     e.preventDefault();
 
@@ -57,17 +52,19 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
       return now.toLocaleTimeString("en-IN", options);
     }
 
+
     async function putData() {
       try {
         const dates = getCurrentISTTime();
-        // console.log();
+        console.log(receiverdata);
         console.log("The sender is :" + you);
         console.log("The receiver is :" + chats);
         const newMessage = {
-          sendername: you,
           message: input,
-          timestamp: dates,
           receivername: chats,
+          sendername: you,
+          timestamp: dates,
+          dateval: Date.now(),
           received: false,
         };
         await axios.post("http://localhost:27017/chats", newMessage);
@@ -84,9 +81,51 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
     // fetchDataFromServer();
     // fetchData();
   };
-  // useEffect(() => {
-  //   fetchData();
-  // }, [input]);
+  // ##############################################################
+  const sch = async (e) => {
+    e.preventDefault();
+
+    function getCurrentISTTime() {
+      const now = scheduledTime;
+      const options = {
+        timeZone: "Asia/Kolkata",
+        hour12: true,
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+      };
+
+      return now.toLocaleTimeString("en-IN", options);
+    }
+
+
+    async function putData() {
+      try {
+        const dates = getCurrentISTTime();
+        console.log(new Date(scheduledTime).getTime());
+        console.log("The sender is :" + you);
+        console.log("The receiver is :" + chats);
+        const newMessage = {
+          message: scheduledMessage,
+          receivername: chats,
+          sendername: you,
+          timestamp: dates,
+          dateval: new Date(scheduledTime).getTime(),
+          received: false,
+        };
+        await axios.post("http://localhost:27017/chats", newMessage);
+        setMessages([...messages, newMessage]);
+        setInput("");
+        // chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
+        // fetchData();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    await putData();
+    setChats(chats);
+  };
+
 
   return (
     <>
@@ -96,7 +135,6 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
         <div className="chatarea" ref={chatAreaRef}>
           {/* This is the messaging area */}
           {messages.map((message) => (
-            // <p className={`chat__message ${message.received && "chat__reciever"} `} key={message._id}>
             <p
               className={`chat__message ${
                 message.receivername === you ? "chat__reciever" : ""
@@ -145,15 +183,22 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
           {/* Code for delayed messages below */}
           {Timesend ? (
             <div className="sendtime">
-              <form>
-                <input type="date" name="" id="" />
-                <input type="time" name="" id="" />
-                <input type="text" placeholder="Type the scheduled message" />
-                <button type="submit">Send a message</button>
-                <IconButton>
-                  <SendIcon style={{ color: "#2A3166" }} />
-                </IconButton>
-              </form>
+              <input
+                type="datetime-local"
+                onChange={(e) => setScheduledTime(new Date(e.target.value))}
+              />
+              <input
+                type="text"
+                placeholder="Type the scheduled message"
+                value={scheduledMessage}
+                onChange={(e) => setScheduledMessage(e.target.value)}
+              />
+              <button type="submit" onClick={sch}>
+                Schedule Message
+              </button>
+              <IconButton>
+                <SendIcon style={{ color: "#2A3166" }} />
+              </IconButton>
             </div>
           ) : null}
         </div>
