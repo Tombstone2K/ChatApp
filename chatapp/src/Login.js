@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useYou } from "./Helper";
 import { Link, useNavigate } from "react-router-dom";
-
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { Avatar, IconButton } from "@mui/material";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import axios from "axios";
 var bcrypt = require("bcryptjs");
 function Login(props) {
@@ -59,58 +61,10 @@ function Login(props) {
       [id]: true,
     });
 
-    // validateLoginField(id, value);
-    // validateForm();
   };
 
-  // const validateLoginField = (fieldName, fieldValue) => {
-  //   // Initialize error message for the field
-  //   let errorMessage = '';
-
-  //   switch (fieldName) {
-  //     case 'login_name':
-  //       // Example validation for the login_name field (required)
-  //       if (!fieldValue.trim()) {
-  //         errorMessage = 'Name is required';
-  //       }
-  //       break;
-
-  //     case 'login_pass':
-  //       // Example validation for the login_pass field (required)
-  //       if (!fieldValue.trim()) {
-  //         errorMessage = 'Password is required';
-  //       }
-  //       break;
-
-  //     // Add more cases for other fields as needed
-
-  //     default:
-  //       break;
-  //   }
-
-  //   // Update error message for the field
-  //   setFieldErrorMessage(fieldName, errorMessage);
-  // };
-
-  // const setFieldErrorMessage = (fieldName, errorMessage) => {
-  //   // Check if there is an error message for the field
-  //   const fieldHasError = errorMessage !== '';
-
-  //   // Set the error message for the field
-  //   setTouchedFields({
-  //     ...touchedFields,
-  //     [fieldName]: fieldHasError,
-  //   });
-
-  //   // Check if the entire form is valid
-  //   const formIsValid = Object.values(touchedFields).every((field) => field === false);
-
-  //   // Update the form validity state
-  //   setIsFormValid(formIsValid);
-  // };
 
   useEffect(() => {
-    // Call validateForm whenever formData changes
     validateForm();
   }, [formData]);
 
@@ -266,47 +220,7 @@ function Login(props) {
 
   const handleSubmitSignUp = (e) => {
     e.preventDefault();
-    // console.log("HERERERE");
-    // // Validate form fields
-    // const newErrors = {};
-    // let hasErrors = false;
-
-    // // Validation logic for the name field (required, min 3 chars)
-    // if (!signUpFormData.name.trim() || signUpFormData.name.length < 3) {
-    //   newErrors.name = 'Name is required and must be at least 3 characters';
-    //   hasErrors = true;
-    // }
-
-    // // Validation logic for the password field (required, min 8 chars, one lowercase, and one number)
-    // const passwordRegex = /^(?=.*[a-z])(?=.*\d).{8,}$/;
-    // if (!passwordRegex.test(signUpFormData.password)) {
-    //   newErrors.password =
-    //     'Password is required and must be at least 8 characters with one lowercase letter and one number';
-    //   hasErrors = true;
-    // }
-
-    // // Validation logic for the numbers field (numeric, 10 digits)
-    // const mobileRegex = /^\d{10}$/;
-    // if (!mobileRegex.test(signUpFormData.numbers)) {
-    //   newErrors.numbers = 'Mobile number must be exactly 10 digits';
-    //   hasErrors = true;
-    // }
-
-    // // Validation logic for the link field (optional, valid URL)
-    // if (signUpFormData.link.trim() && !isValidUrl(signUpFormData.link)) {
-    //   newErrors.link = 'Please enter a valid URL';
-    //   hasErrors = true;
-    // }
-
-    // // Update errors state
-    // setSignUpErrors(newErrors);
-
-    // If there are no errors, submit the form
-
     handleSubmit(e);
-    // Perform form submission logic here
-    // For now, you can just display a success message
-    // alert("Form submitted successfully");
   };
 
   const handleChange = (e) => {
@@ -425,7 +339,17 @@ function Login(props) {
                 onClick={togglePasswordVisibility}
                 type="button"
               >
-                {passwordVisible ? "🙈" : "👁️"}
+                {passwordVisible ? <IconButton
+                style={{  color: "#FFF" }}
+               
+              >
+                <VisibilityOffIcon />
+              </IconButton> : <IconButton
+                style={{color: "#FFF" }}
+               
+              >
+                <VisibilityIcon />
+              </IconButton>}
               </button>
 
               {touchedFields.login_pass && (
@@ -531,32 +455,6 @@ function Login(props) {
                 Submit
               </button>
             </form>
-            {/* <form onSubmit={handleSubmit} id="sign" className="logs">
-              <input type="text" name="name" placeholder="Create username" />
-              <input
-                type="password"
-                name="password"
-                placeholder="Create Password"
-              />
-              <input type="number" name="numbers" placeholder="Enter number" />
-              <input
-                type="text"
-                name="organisation"
-                placeholder="Enter Organisation"
-              />
-              <input type="text" name="link" placeholder="Enter DP link" />
-              <input
-                type="text"
-                name="interest"
-                placeholder="Enter you Aim/Interest"
-              />
-              {error ? (
-                <div id="error_sign">Please Input correct values</div>
-              ) : null}
-              <button type="submit" id="sign_submit">
-                Submit
-              </button>
-            </form> */}
             <br></br>
             <br></br>
             <button type="button" id="sign_up_show" onClick={toggleLock}>

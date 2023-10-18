@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, IconButton } from "@material-ui/core";
+import { Avatar, IconButton } from "@mui/material";
 import "./Otherdetail.css";
 function Otherdetail(props) {
   return (

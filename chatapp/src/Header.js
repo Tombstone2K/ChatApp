@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Header.css";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { Avatar, IconButton } from "@material-ui/core";
+import { Avatar, IconButton } from "@mui/material";
 import { useYou } from "./Helper";
 
 import { Link, useNavigate  } from "react-router-dom";
@@ -36,8 +36,6 @@ function Header(props) {
     console.log("HELLO");
     navigate('/');
     
-    // You can also redirect the user to the home page if needed
-    // e.g., using React Router's history.push('/')
   };
 
   const showsmall = () => {
@@ -170,6 +168,7 @@ function Header(props) {
             ) : null}
           </div>
         </div>
+        
       </div>
     </>
   );

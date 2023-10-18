@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./People.css";
-import { Avatar, IconButton } from "@material-ui/core";
 import Indivisual from "./Indivisual";
 import { useChats, useSide, useUserdetail } from "./Helper";
 import Toolbar from "./Toolbar";
@@ -20,17 +19,13 @@ function People(props) {
 
   const handleButtonClick = (e) => {
     e.preventDefault();
-    console.log(
-      "This will be the reciever ",
-      document.getElementById("rec").value
-    );
+    localStorage.setItem("reciever", document.getElementById("rec").value);
     sessionStorage.setItem("reciever", document.getElementById("rec").value);
     setChats(document.getElementById("rec").value);
     props.fetchData();
     props.get_friends();
   };
 
-  //Calling the get function with name as parameter with axios
 
   return (
     <>
@@ -54,7 +49,7 @@ function People(props) {
 
           <Indivisual
             members={friends}
-            setChats={setChats}
+            // setChats={setChats}
             fetchData={props.fetchData}
             get_friends={props.get_friends}
           />

@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "./App.css";
 import Header from "./Header";
 import People from "./People";
@@ -18,18 +17,7 @@ import FileShare from "./FileShare";
 import Cal from "./Cal";
 
 function App() {
-  // const navigate = useNavigate();
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (localStorage.length === 0 || localStorage.getItem("username") === "") {
-  //     // Do something when the condition is met, if needed.
-  //     navigate("/");
-  //   } else {
-  //     console.log(localStorage.getItem("username"));
 
-  //   }
-  // }, [navigate]);
-  // console.log("App is the start");
   const [messages, setMessages] = useState([]);
   const [members, setMembers] = useState([]);
   const [userdata, setUserData] = useState([]);
@@ -58,13 +46,6 @@ function App() {
       : initEvent;
   });
   const [currentEvent, setCurrentEvent] = useState(events[0]);
-
-  // useEffect(() => {
-  //   if (localStorage.length === 0 || localStorage.getItem("username") === "") {
-  //     // Redirect to the login page ("/") when the condition is met.
-  //     navigate("/");
-  //   }
-  // }, [navigate]);
 
   const changeEvents = () => {
     async function edit_events() {
@@ -106,45 +87,46 @@ function App() {
             "reciever",
             document.getElementById("rec").value
           );
-      // console.log(sessionStorage.getItem("reciever"), "This is the receiver");
-      // console.log("Function is called");
-      // console.log("The User here is " + mainuser);
+      console.log(sessionStorage.getItem("reciever"), "This is the receiver");
+;
       const result = await axios.get("http://localhost:27017/chats", {
         params: {
           sendername: mainuser,
           receivername: sessionStorage.getItem("reciever"),
         },
       });
-      setMessages(result.data);
-      // console.log("These are the chats ", result.data);
+
+      const currentEpoch = Date.now();
+      const filteredMessages = result.data.filter((message) => {
+        return message.dateval <= currentEpoch;
+      });
+
+      setMessages(filteredMessages);
+      console.log("These are the chats ", filteredMessages);
+      console.log("These are the should be chats ", result.data);
     } catch (error) {
       console.log("There is error in setting chats");
+      console.log(error);
     }
   }
 
+
   async function get_friends() {
     try {
-      // console.log('The function get_friends is called')
-      // console.log("This is the current user: ", mainuser);
+      console.log("This is the current user: ", mainuser);
       const result = await axios.get("http://localhost:27017/users");
-      // console.log("HELLO");
       const temp = result.data;
-      // .slice(0,8);
-      // console.log(result.data);
       setMembers(temp);
       const res = temp.filter((member) => member.name === mainuser);
-      // console.log(res);
       setUserData(res);
-      // console.log('This is the user',res[0])
       localStorage.setItem("organisation", res[0].organisation.toUpperCase());
       localStorage.setItem("userdata", JSON.stringify(res[0]));
-      // console.log(result.data);
-      // const others = temp.filter(
-      //   (member) => member.name === document.getElementById("rec").value
-      // );
-      // // const others=result.data.filter(member=>member.name===sessionStorage.getItem('reciever'))
-      // // console.log("Our other friends ", others);
-      // setReceiverData(others);
+      const others = temp.filter(
+        (member) => member.name === localStorage.getItem("reciever")
+      );
+      console.log(localStorage.getItem("reciever"));
+
+      setReceiverData(others);
     } catch (error) {
       console.log(error);
       console.log("Errorrrrrrr is here");
@@ -152,7 +134,6 @@ function App() {
   }
 
   const set_user = (logger) => {
-    // console.log("Function set_user is called")
     setMainUser(logger);
   };
 
