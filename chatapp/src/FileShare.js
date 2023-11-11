@@ -1,9 +1,10 @@
+// File Sharing feature
 import React, { useRef, useState, useEffect } from "react";
 import "./FileShare.css";
 import axios from "axios";
-import { Link, useNavigate  } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
-import { Avatar, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 
 function FileShare() {
   const [file, setFile] = useState("");
@@ -13,11 +14,9 @@ function FileShare() {
   const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.length === 0 || localStorage.getItem("username") === "") {
-      // Do something when the condition is met, if needed.
       navigate("/");
     } else {
       console.log(localStorage.getItem("username"));
-      
     }
   }, []);
 
@@ -56,7 +55,7 @@ function FileShare() {
     fileInputRef.current.click();
   };
 
-  console.log(file);
+
   return (
     <div className="fille">
       <div className="filebox">

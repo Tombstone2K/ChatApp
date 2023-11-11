@@ -1,10 +1,8 @@
 .ifcal {
-  /* border: 2px solid red; */
   height: 90%;
 }
 .cal {
   height: 100%;
-  /* border: 3px solid green; */
   background-color: #eafff9;
 }
 .getcal {
@@ -13,10 +11,8 @@
   justify-content: center;
   height: 10%;
   padding: 0;
-  /* border: 2px solid blue; */
 }
 .smallcal {
   display: flex;
   justify-content: center;
-  /* border: 2px solid black; */
 }

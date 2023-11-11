@@ -5,7 +5,6 @@
   box-shadow: -1px 5px 30px -8px rgba(00, 0, 0, 0.75);
 }
 .fille {
-  /* border: 2px solid red; */
   height: 100vh;
   display: flex;
   align-items: center;
@@ -16,7 +15,6 @@
 #file_head {
   font-size: 30pt;
   text-align: center;
-  /* border: 2px solid red; */
   padding-left: 30px;
 }
 #notes {
@@ -26,14 +24,12 @@
   flex-direction: column;
   gap: 5px;
   align-items: center;
-  /* border: 2px solid red; */
 }
 #uploadbut {
   width: 50%;
 }
 #filelink {
   margin-top: 25px;
-  /* border: 2px solid red; */
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -42,7 +38,6 @@
 }
 #copier {
   margin-top: 10px;
-  /* border: 2px solid red; */
   color: white;
   padding: 10px;
   border-radius: 5px;

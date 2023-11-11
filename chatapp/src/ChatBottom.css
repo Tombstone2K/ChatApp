@@ -3,23 +3,18 @@
   flex-direction: column;
   height: 87vh;
   width: 100%;
-  /* width: 63.3%; */
   position: absolute;
-  /* border: 5px solid red; */
 }
 .chatarea {
   min-height: 70%;
   height: 90%;
   padding: 30px;
   overflow: scroll;
-  /* border: 2px solid brown; */
-  /* width:max-content; */
   background: rgb(0,0,126);
   background: linear-gradient(45deg, rgba(0,0,126,1) 0%, rgba(0,10,181,1) 55%, rgba(162,171,255,1) 100%);
 }
 .send,
 .sendtime {
-  /* border: 2px solid blue; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,7 +23,6 @@
 }
 .sendtime {
   visibility: visible;
-  /* display: none; */
 }
 
 .send > form {
@@ -98,8 +92,6 @@ input[type="time"] {
   border-radius: 5px;
   transform-style: preserve-3d;
   box-shadow: -1px 5px 30px -8px rgba(00, 0, 0, 0.75);
-
-  /* display: none; */
 }
 .otherdetail::before {
   display: flex;

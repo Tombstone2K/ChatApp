@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./People.css";
-import Indivisual from "./Indivisual";
+import Individual from "./Individual";
 import { useChats, useSide, useUserdetail } from "./Helper";
 import Toolbar from "./Toolbar";
 import "./Header.css";
@@ -45,16 +45,12 @@ function People(props) {
               Get a name
             </button>
           </form>
-          {/* <button onClick={create}>Hit it to generate chat</button> */}
 
-          <Indivisual
+          <Individual
             members={friends}
-            // setChats={setChats}
             fetchData={props.fetchData}
             get_friends={props.get_friends}
           />
-
-          {/* <Indivisual members={friends} /> */}
         </div>
       </div>
     </>

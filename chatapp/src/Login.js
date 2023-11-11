@@ -1,44 +1,46 @@
+// Login and Sign-up Page
+// Handles regex checks for both Login and Sign-up
 import React, { useState, useEffect } from "react";
 import "./Login.css";
 import { useYou } from "./Helper";
 import { Link, useNavigate } from "react-router-dom";
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import { Avatar, IconButton } from "@mui/material";
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import { IconButton } from "@mui/material";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 var bcrypt = require("bcryptjs");
 function Login(props) {
   const { you, setYou } = useYou();
-  const [lock, setLock] = useState(false); // to disable the input and submit
+  const [lock, setLock] = useState(false);
   const [error, setError] = useState(false);
 
-  const [touchedFields, setTouchedFields] = useState({
-    login_name: false,
-    login_pass: false,
-  });
-
-  // to create a red div in registration on  error
   const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.length === 0 || localStorage.getItem("username") === "") {
-      // Do something when the condition is met, if needed.
     } else {
       console.log(localStorage.getItem("username"));
       navigate("/chats");
     }
   }, []);
 
+  // LOGIN
+
   const [isNameValid, setIsNameValid] = useState(false);
   const [isPasswordValid, setIsPasswordValid] = useState(false);
 
+  const [touchedFields, setTouchedFields] = useState({
+    login_name: false,
+    login_pass: false,
+  });
+
+  // REGEX based form validation for Login
   const validateForm = () => {
     const { login_name, login_pass } = formData;
 
     const usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
     const isNameValid = usernameRegex.test(login_name);
 
-    // Password validation regex
-    //(?=.*[A-Z])
+
     const passwordRegex = /^(?=.*[a-z])(?=.*\d).{8,}$/;
     const isPasswordValid = passwordRegex.test(login_pass);
 
@@ -53,25 +55,22 @@ function Login(props) {
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    // console.log(e.target);
     setFormData({ ...formData, [id]: value });
 
     setTouchedFields({
       ...touchedFields,
       [id]: true,
     });
-
   };
-
 
   useEffect(() => {
     validateForm();
   }, [formData]);
 
+  // Try to Login and proceed to Chats if Login Credentials match
   const login_and_toChats = async (e) => {
     e.preventDefault();
 
-    // Check if both fields are filled
     if (
       formData["login_name"].trim() === "" ||
       formData["login_pass"].trim() === ""
@@ -81,7 +80,6 @@ function Login(props) {
     }
 
     try {
-      // const hashedPassword = await bcrypt.hash(formData['login_pass'], 10);
       const response = await fetch("http://localhost:27017/login", {
         method: "POST",
         headers: {
@@ -94,18 +92,13 @@ function Login(props) {
       });
 
       if (response.ok) {
-        // console.log("Function login_and_toChats is called");
         setYou(formData.login_name);
 
-        // setYou(document.getElementById("login_name").value);
         localStorage.setItem("username", formData.login_name);
         props.set_user(formData.login_name);
         props.get_friends();
-        console.log(you);
-        console.log("GOING TO CHATS");
         navigate("/chats");
         // Login successful
-        // Redirect the user to another page or perform any desired action
       } else {
         // Login failed
         // Display an error message to the user
@@ -126,10 +119,12 @@ function Login(props) {
     });
   }, [you]);
 
+
+  // SIGN_UP
+  // Encrypt Password and wrap data into Mongoose Schema
   const handleSubmit = async (event) => {
     event.preventDefault();
     const name = event.target.elements.name.value;
-    // const password = event.target.elements.password.value;
     const password = await bcrypt.hash(
       event.target.elements.password.value,
       10
@@ -149,6 +144,7 @@ function Login(props) {
     putData(data);
   };
 
+  // Verify whether username is available and insert data into MongoDB 
   function putData(data) {
     try {
       axios
@@ -163,15 +159,13 @@ function Login(props) {
             localStorage.setItem("username", data["name"]);
             props.set_user(data["name"]);
             props.get_friends();
-            console.log(you);
-            console.log("GOING TO CHATS");
+
             navigate("/chats");
             // User updated successfully
           } else if (response.status === 409) {
             alert("Username is taken");
             // Username conflict, handle accordingly
             console.log("Username already exists");
-            // You might want to display a message to the user or take some other action
           } // Access the response data here
         })
         .catch((error) => {
@@ -187,7 +181,6 @@ function Login(props) {
   }
 
   const [passwordVisible, setPasswordVisible] = useState(false);
-  // const [password, setPassword] = useState('');
 
   const togglePasswordVisibility = (e) => {
     e.preventDefault();
@@ -197,8 +190,6 @@ function Login(props) {
   const toggleLock = () => {
     setLock(!lock);
   };
-
-  ///////
 
   const [signUpFormData, setSignUpFormData] = useState({
     name: "",
@@ -233,6 +224,7 @@ function Login(props) {
     validateField(name, value);
   };
 
+  // REGEX based form validation for Sign-Up Fields
   const validateField = (fieldName, fieldValue) => {
     const newErrors = { ...signUpErrors };
 
@@ -272,8 +264,6 @@ function Login(props) {
         }
         break;
 
-      // Handle other fields as needed
-
       default:
         break;
     }
@@ -295,7 +285,8 @@ function Login(props) {
   const isSubmitDisabled = Object.values(signUpErrors).some(
     (error) => error !== ""
   );
-
+  
+  // Return
   return (
     <div className="login">
       <div className="wrap">
@@ -332,24 +323,20 @@ function Login(props) {
                 onChange={handleInputChange}
               />
 
-              {/* <input type="text" placeholder="Enter your Name" id="login_name" required onChange={handleInputChange}/>
-            <input type={passwordVisible ? 'text' : 'password'} placeholder="Enter your Password" id="login_pass" required onChange={handleInputChange}/> */}
               <button
                 className="toggle-password-button"
                 onClick={togglePasswordVisibility}
                 type="button"
               >
-                {passwordVisible ? <IconButton
-                style={{  color: "#FFF" }}
-               
-              >
-                <VisibilityOffIcon />
-              </IconButton> : <IconButton
-                style={{color: "#FFF" }}
-               
-              >
-                <VisibilityIcon />
-              </IconButton>}
+                {passwordVisible ? (
+                  <IconButton style={{ color: "#FFF" }}>
+                    <VisibilityOffIcon />
+                  </IconButton>
+                ) : (
+                  <IconButton style={{ color: "#FFF" }}>
+                    <VisibilityIcon />
+                  </IconButton>
+                )}
               </button>
 
               {touchedFields.login_pass && (

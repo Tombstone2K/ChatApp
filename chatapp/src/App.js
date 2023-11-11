@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo } from "react";
 import "./App.css";
 import Header from "./Header";
 import People from "./People";
@@ -17,7 +17,6 @@ import FileShare from "./FileShare";
 import Cal from "./Cal";
 
 function App() {
-
   const [messages, setMessages] = useState([]);
   const [members, setMembers] = useState([]);
   const [userdata, setUserData] = useState([]);
@@ -27,7 +26,7 @@ function App() {
       ? localStorage.getItem("username")
       : "";
   });
-  sessionStorage.setItem("reciever", "Athithi Devo Bhava");
+  sessionStorage.setItem("reciever", "Placeholder");
   const initEvent = useMemo(
     () => [
       {
@@ -50,7 +49,6 @@ function App() {
   const changeEvents = () => {
     async function edit_events() {
       try {
-        console.log("Database post is called ");
         const newevents = JSON.parse(sessionStorage.getItem("events"));
         const organisation = localStorage.getItem("organisation");
         await axios.post("http://localhost:27017/projects", {
@@ -58,7 +56,7 @@ function App() {
           events: newevents,
         });
       } catch (error) {
-        console.log("There is an error in updating projects");
+        console.log(error);
       }
     }
     edit_events();
@@ -67,28 +65,26 @@ function App() {
   async function getEvents() {
     try {
       const organisation = localStorage.getItem("organisation");
-      console.log("This is the organisation  of user : ", organisation);
       const result = await axios.get("http://localhost:27017/projects", {
         params: { organisation: organisation },
       });
       sessionStorage.setItem("events", JSON.stringify(result.data.events));
       setEvents(JSON.parse(sessionStorage.getItem("events")));
     } catch (error) {
-      console.log("There is a error in getting the events");
+      console.log(error);
     }
   }
 
+  // Fetch and filter the chats accroding to timestamp
   async function fetchData() {
     try {
-      // sessionStorage.setItem("reciever", sessionStorage.getItem("reciever"));
       document.getElementById("rec").value === ""
         ? sessionStorage.setItem("reciever", sessionStorage.getItem("reciever"))
         : sessionStorage.setItem(
             "reciever",
             document.getElementById("rec").value
           );
-      console.log(sessionStorage.getItem("reciever"), "This is the receiver");
-;
+      
       const result = await axios.get("http://localhost:27017/chats", {
         params: {
           sendername: mainuser,
@@ -102,18 +98,14 @@ function App() {
       });
 
       setMessages(filteredMessages);
-      console.log("These are the chats ", filteredMessages);
-      console.log("These are the should be chats ", result.data);
     } catch (error) {
-      console.log("There is error in setting chats");
       console.log(error);
     }
   }
 
-
+  // Fetch list of all friends
   async function get_friends() {
     try {
-      console.log("This is the current user: ", mainuser);
       const result = await axios.get("http://localhost:27017/users");
       const temp = result.data;
       setMembers(temp);
@@ -124,12 +116,10 @@ function App() {
       const others = temp.filter(
         (member) => member.name === localStorage.getItem("reciever")
       );
-      console.log(localStorage.getItem("reciever"));
 
       setReceiverData(others);
     } catch (error) {
       console.log(error);
-      console.log("Errorrrrrrr is here");
     }
   }
 

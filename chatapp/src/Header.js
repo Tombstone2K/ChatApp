@@ -1,3 +1,4 @@
+// Header of the chats page
 import { useState } from "react";
 import "./Header.css";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -5,7 +6,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Avatar, IconButton } from "@mui/material";
 import { useYou } from "./Helper";
 
-import { Link, useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import MessageOutlinedIcon from "@mui/icons-material/MessageOutlined";
 import {
@@ -34,8 +35,7 @@ function Header(props) {
     setYou("");
     localStorage.clear();
     console.log("HELLO");
-    navigate('/');
-    
+    navigate("/");
   };
 
   const showsmall = () => {
@@ -110,14 +110,12 @@ function Header(props) {
               />
             </IconButton>
 
-            
-              <IconButton
-                style={{ backgroundColor: "white", color: "#2A3166" }}
-                onClick={handleLogout}
-              >
-                <LogoutOutlinedIcon />
-              </IconButton>
-            
+            <IconButton
+              style={{ backgroundColor: "white", color: "#2A3166" }}
+              onClick={handleLogout}
+            >
+              <LogoutOutlinedIcon />
+            </IconButton>
           </div>
         </div>
         <div className="header_buttons_list">
@@ -156,19 +154,16 @@ function Header(props) {
                   />
                 </IconButton>
 
-                
-                  <IconButton
-                    style={{ backgroundColor: "white", color: "#2A3166" }}
-                    onClick={handleLogout}
-                  >
-                    <LogoutOutlinedIcon />
-                  </IconButton>
-                
+                <IconButton
+                  style={{ backgroundColor: "white", color: "#2A3166" }}
+                  onClick={handleLogout}
+                >
+                  <LogoutOutlinedIcon />
+                </IconButton>
               </div>
             ) : null}
           </div>
         </div>
-        
       </div>
     </>
   );

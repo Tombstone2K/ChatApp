@@ -1,18 +1,16 @@
-// import React from "react";
-import React, {  useEffect } from "react";
+// Load Google Calendar
+import React, { useEffect } from "react";
 import "./Cal.css";
-import { Link, useNavigate  } from "react-router-dom";
-import { Avatar, IconButton } from "@material-ui/core";
+import { Link, useNavigate } from "react-router-dom";
+import { IconButton } from "@material-ui/core";
 import ArrowForwardIosOutlinedIcon from "@mui/icons-material/ArrowForwardIosOutlined";
 function Cal() {
   const navigate = useNavigate();
   useEffect(() => {
     if (localStorage.length === 0 || localStorage.getItem("username") === "") {
-      // Do something when the condition is met, if needed.
       navigate("/");
     } else {
       console.log(localStorage.getItem("username"));
-      
     }
   }, []);
   return (

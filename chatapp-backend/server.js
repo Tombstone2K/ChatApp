@@ -2,15 +2,11 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import multer from "multer";
-
 import bcrypt from "bcrypt";
-
-
 import dotenv from "dotenv";
 dotenv.config();
 //PLEASE NOTE THAT IN ORDER TO MAKE IT A REAL TIME CHAT APP PUSHER IS NEEDED WHICH DOES NOT WORK OFFLINE
 
-// Configuring the
 const app = express();
 const router = express.Router();
 const upload = multer({ dest: "upload" });
@@ -27,7 +23,6 @@ const myModel = mongoose.model("chats", {
 });
 const myUsers = mongoose.model("users", {
   name: String,
-
   link: String,
   numbers: Number,
   interest: String,
@@ -56,6 +51,7 @@ const FileSchema = new mongoose.Schema({
 });
 
 const File = mongoose.model("file", FileSchema);
+
 //Now we will note the Middle ware
 app.use(express.json());
 app.use(cors());
@@ -113,7 +109,7 @@ router.post("/upload", upload.single("file"), uploadImage);
 
 router.get("/file/:fileId", downloadImage);
 
-// Get code of the chats
+// Retreive Chats
 app.get("/chats", async (req, res) => {
   try {
     const sendername = req.query.sendername;
@@ -125,53 +121,52 @@ app.get("/chats", async (req, res) => {
     });
     
     res.send(data);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error retrieving data from the database");
-  }
-});
-// Get code of the projects for kanban
-app.get("/projects", async (req, res) => {
-  try {
-    // const organisation=req.body;
-    const organisation = req.query.organisation;
-    console.log("This is my organisation", organisation);
-    const data = await kanban_projects.findOne({ organisation: organisation });
-    console.log(data.events);
-    res.send(data);
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Error retrieving data from the database");
   }
 });
 
-//Get code of the users
+// Retreive Kanban-board Details
+app.get("/projects", async (req, res) => {
+  try {
+    // const organisation=req.body;
+    const organisation = req.query.organisation;
+    const data = await kanban_projects.findOne({ organisation: organisation });
+    res.send(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error retrieving data from the database");
+  }
+});
+
+// Retreive Users
 app.get("/users", async (req, res) => {
   try {
     // await myUsers.find()
     const data = await myUsers.find();
     res.send(data);
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Error retrieving data from the database");
   }
 });
 
 
 
-//Post Code for chats
+//Post chats into the DB
 app.post("/chats", async (req, res) => {
   try {
     const dbm = req.body;
     const data = await myModel.create(dbm);
-    console.log("This is the data", data);
     res.send(data);
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Error sending data from the database");
   }
 });
-//Post Code for user
+
+// Post new user details into the DB
 app.post("/users", async (req, res) => {
   try {
     // console.log(req.body.name);
@@ -179,40 +174,35 @@ app.post("/users", async (req, res) => {
     if (temp.length != 0) {
       res.status(409).send("User already exists");
     } else {
-      console.log(temp);
-      console.log("CREATING");
       const dbm = req.body;
       const data = await myUsers.create(dbm);
       res.send(data);
     }
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(500).send("Error sending data from the database");
   }
 });
+
 //Post Code for Projects
 app.post("/projects", async (req, res) => {
   try {
-    console.log("Server is invoked");
     const dbm = req.body;
-    console.log(dbm.organisation, "Yeeasasa---------->");
-    console.log("Yessssssss", dbm.events);
     const query = { organisation: dbm.organisation };
     const update = { $set: { events: dbm.events } };
     const options = { upsert: true };
     const data = await kanban_projects.findOneAndUpdate(query, update, options);
     console.log("suscess");
     res.send(data);
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Error sending data from the database");
   }
 });
 
-// File sharing
-
+// Handle the login
+// Uses encryption for the passwords
 app.post("/login", async (req, res) => {
-  console.log("IN VALIDATION");
   try {
     console.log(req.body);
     const nameFromReq = req.body["name"];
@@ -243,13 +233,10 @@ app.post("/login", async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
-  // console.log("Hello Moto!!");
 });
 
 //Now Connecting to the database
 const url = "mongodb://0.0.0.0:27017/chatapp";
-// const url = "mongodb+srv://urveeshdoshi09:09March2003@cluster0.2dhi6wc.mongodb.net/?retryWrites=true&w=majority";
-// const url = "mongodb+srv://urveeshdoshi09:09March2003@cluster0.2dhi6wc.mongodb.net/chatapp?retryWrites=true&w=majority";
 const db = mongoose
   .connect(url, {
     useNewUrlParser: true,
@@ -258,7 +245,6 @@ const db = mongoose
   .then(() => {
     console.log("Connected to the database");
   })
-  .catch((err) => {
-    console.log("SUPER BIG ERROR");
-    console.error(err);
+  .catch((error) => {
+    console.error(error);
   });

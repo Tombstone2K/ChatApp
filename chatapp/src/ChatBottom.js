@@ -1,10 +1,11 @@
+// Chat Bottom is the area where the chats text and scheduled messages are entered
 import React, { useEffect, useState, useRef } from "react";
 import "./ChatBottom.css";
 import "./RecMes.css";
 import InsertEmoticonIcon from "@mui/icons-material/InsertEmoticon";
 import MicIcon from "@mui/icons-material/Mic";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import { Avatar, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import {
   useYou,
@@ -21,8 +22,8 @@ import Cal from "./Cal";
 function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
   const Timesend = useTimesend();
   const UpdateTimesend = useUpdateTimesend();
-  const { dispcal, setDispcal, Showdispcalr, Removedispcal } = useDispCal();
-  const { Other, setOther, ShowOther, RemoveOther } = useOtherdetail();
+  const { dispcal, setDispcal } = useDispCal();
+  const { Other, setOther } = useOtherdetail();
   const { chats, setChats } = useChats();
   const { you, setYou } = useYou();
   const [input, setInput] = useState("");
@@ -38,7 +39,8 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
 
   const sendMessage = async (e) => {
     e.preventDefault();
-
+    
+    // Get current IST Time
     function getCurrentISTTime() {
       const now = new Date();
       const options = {
@@ -52,13 +54,10 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
       return now.toLocaleTimeString("en-IN", options);
     }
 
-
+    // Post the chat
     async function putData() {
       try {
         const dates = getCurrentISTTime();
-        console.log(receiverdata);
-        console.log("The sender is :" + you);
-        console.log("The receiver is :" + chats);
         const newMessage = {
           message: input,
           receivername: chats,
@@ -70,18 +69,15 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
         await axios.post("http://localhost:27017/chats", newMessage);
         setMessages([...messages, newMessage]);
         setInput("");
-        // chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
-        // fetchData();
       } catch (error) {
         console.log(error);
       }
     }
     await putData();
     setChats(chats);
-    // fetchDataFromServer();
-    // fetchData();
   };
-  // ##############################################################
+
+  // Handle the scheduled messages
   const sch = async (e) => {
     e.preventDefault();
 
@@ -97,7 +93,6 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
 
       return now.toLocaleTimeString("en-IN", options);
     }
-
 
     async function putData() {
       try {
@@ -116,8 +111,6 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
         await axios.post("http://localhost:27017/chats", newMessage);
         setMessages([...messages, newMessage]);
         setInput("");
-        // chatAreaRef.current.scrollTop = chatAreaRef.current.scrollHeight;
-        // fetchData();
       } catch (error) {
         console.log(error);
       }
@@ -125,7 +118,6 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
     await putData();
     setChats(chats);
   };
-
 
   return (
     <>
@@ -180,7 +172,7 @@ function ChatBottom({ messages, fetchData, receiverdata, setMessages }) {
               <AccessAlarmIcon style={{ color: "#2A3166" }} />
             </IconButton>
           </div>
-          {/* Code for delayed messages below */}
+          {/* Code for Scheduled messages below */}
           {Timesend ? (
             <div className="sendtime">
               <input
