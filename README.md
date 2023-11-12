@@ -14,14 +14,23 @@ Our webapp revolves around the need for creating a platform to enable free and s
 
 # Screenshots
 
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/b9d9c9e6-9a4c-47af-9f45-53f809e5446a)
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/f85254fa-0150-4ed0-afd6-d6f4825a6c90)
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/36cadc37-8630-4d51-8300-629482de2e4c)
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/759c6fcb-3d54-46bc-a14f-544dcf032e6a)
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/f2f77f24-f9f2-4324-bde3-a0205f64d50a)
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/d7eedde3-2137-4786-9ce9-cdd357d441d3)
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/2ddb333e-7005-4f1d-b886-7c40a96b400b)
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/62db5a70-5a79-4511-b69d-c7ed86aa108f)
-![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/9a923c0b-c3cb-44bb-9df5-93d37838e588)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/6fba133c-d223-4fb5-ad5b-06eb87acd0a2)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/1c148f75-eca2-473b-92f0-ff903ea5c10e)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/d0e2595c-ee99-4c74-829d-f87129399fe6)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/a56f3af7-decf-4a16-88dc-c67eb22c7a91)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/03bf412d-07a1-405f-b2af-e6c522948e6b)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/8d72832e-1d79-4bc1-bb8a-4e4c832acc53)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/6b1cb164-548d-4928-ac31-1cdf0ff27309)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/21ba84ba-d26a-461f-b269-336b2868be68)
+![image](https://github.com/Tombstone2K/ChatApp/assets/74809929/c6e3fcad-2dcf-49c9-a600-d6bf7fbc5725)
+
+
+
+
+
+
+
+
+
 
 
